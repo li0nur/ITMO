@@ -1,0 +1,41 @@
+[    1.845023] pci 0000:00:1c.5:   bridge window [mem 0xd0400000-0xd04fffff 64bit pref]
+[    1.845542] pci_bus 0000:00: resource 4 [io  0x0000-0x0cf7]
+[    1.845544] pci_bus 0000:00: resource 5 [io  0x0d00-0xffff]
+[    1.845546] pci_bus 0000:00: resource 6 [mem 0x000a0000-0x000bffff]
+[    1.845548] pci_bus 0000:00: resource 7 [mem 0xaf200000-0xdfffffff]
+[    1.845549] pci_bus 0000:00: resource 8 [mem 0xf0000000-0xfedfffff]
+[    1.845551] pci_bus 0000:00: resource 9 [mem 0xfee01000-0xffffffff]
+[    1.845553] pci_bus 0000:01: resource 0 [io  0x3000-0x3fff]
+[    1.845555] pci_bus 0000:01: resource 1 [mem 0xd0900000-0xd09fffff]
+[    1.845556] pci_bus 0000:01: resource 2 [mem 0xb0000000-0xbfffffff 64bit pref]
+[    1.845558] pci_bus 0000:02: resource 1 [mem 0xd0800000-0xd08fffff]
+[    1.845560] pci_bus 0000:03: resource 1 [mem 0xd0700000-0xd07fffff]
+[    1.845562] pci_bus 0000:03: resource 2 [mem 0xaf200000-0xaf2fffff pref]
+[    1.845564] pci_bus 0000:04: resource 1 [mem 0xd0600000-0xd06fffff]
+[    1.845565] pci_bus 0000:04: resource 2 [mem 0xaf300000-0xaf3fffff pref]
+[    1.845567] pci_bus 0000:05: resource 0 [io  0x2000-0x2fff]
+[    1.845569] pci_bus 0000:05: resource 1 [mem 0xd0500000-0xd05fffff]
+[    1.845571] pci_bus 0000:05: resource 2 [mem 0xd0400000-0xd04fffff 64bit pref]
+[    1.845596] NET: Registered protocol family 2
+[    1.845760] TCP established hash table entries: 32768 (order: 7, 524288 bytes)
+[    1.845887] TCP bind hash table entries: 32768 (order: 7, 524288 bytes)
+[    1.845978] TCP: Hash tables configured (established 32768 bind 32768)
+[    1.846001] TCP: reno registered
+[    1.846007] UDP hash table entries: 2048 (order: 4, 65536 bytes)
+[    1.846026] UDP-Lite hash table entries: 2048 (order: 4, 65536 bytes)
+[    1.846086] NET: Registered protocol family 1
+[    1.846098] pci 0000:00:02.0: Boot video device
+[    1.846105] pci 0000:00:14.0: enabling device (0000 -> 0002)
+[    1.846214] pci 0000:00:14.0: can't derive routing for PCI INT A
+[    1.846215] pci 0000:00:14.0: PCI INT A: no GSI - using ISA IRQ 10
+[    1.846356] pci 0000:00:14.0: can't derive routing for PCI INT A
+[    1.846806] PCI: CLS 64 bytes, default 64
+[    1.846852] Trying to unpack rootfs image as initramfs...
+[    2.268003] Freeing initrd memory: 26016K (ffff88001e688000 - ffff88001fff0000)
+[    2.268008] PCI-DMA: Using software bounce buffering for IO (SWIOTLB)
+[    2.268011] software IO TLB [mem 0xa4e1d000-0xa8e1d000] (64MB) mapped at [ffff8800a4e1d000-ffff8800a8e1cfff]
+[    2.268211] Scanning for low memory corruption every 60 seconds
+[    2.268479] Initialise module verification
+[    2.268517] audit: initializing netlink socket (disabled)
+[    2.268526] type=2000 audit(1394905949.212:1): initialized
+
