@@ -23,7 +23,14 @@ class CleanerHTML(object):
             p2 = [key for key in self.args if self.dictionary_tags[key] == 2]
         part1 = r'(?:' + '|'.join(p1) + r').*?'
         part2 = r'(' + '|'.join(p2) + r').*?>(?:\s|\S)*?</\1'
-        p = r'<(?:' + part1 + '|' + part2 + ')>'
+        if p1 and p2:
+            p = r'<(?:' + part1 + '|' + part2 + ')>'
+        elif p1:
+            p = r'<(?:' + part1 + ')>'
+        elif p2:
+            p = r'<(?:' + part2 + ')>'
+        else:
+            return
         if verbose:
             print "-" * 100 + "\nPATTERN --> \t %s" % p
         return re.compile(p)
@@ -45,14 +52,17 @@ class CleanerHTML(object):
 
     def clean_html(self, data, verbose=False):
         pattern = self.make_pattern(verbose)
-        if verbose:
-            mo = pattern.finditer(data)
-            print "-" * 100
-            print "Удалены следующие конструкции:\n"
-            for j in mo:
-                print j.group()
-        data = pattern.sub("", data)
-        return data
+        if pattern:
+            if verbose:
+                mo = pattern.finditer(data)
+                print "-" * 100
+                print "Удалены следующие конструкции:\n"
+                for j in mo:
+                    print j.group()
+            data = pattern.sub("", data)
+            return data
+        else:
+            return "No matches was found"
 
     def __str__(self):
         strings = ["В файле {0} тег <{1}> найден {2} раз(а), в строках под номер(ом|ами): {3}"
@@ -71,7 +81,8 @@ class CleanerHTML(object):
 if __name__ == '__main__':
 
     filename = "Django_1.6_tutorial02.html"
-    #tags = ["meta", "link", "style", "script"]
+    #tags = ["title"]
+    #tags = ["title", "meta", "style"]
     tags = ["meta", "link", "style", "script", "title", "TEST-TEST"]
     cl = CleanerHTML(filename, tags)
     f_out = open("clear.html", "w")
