@@ -1,0 +1,489 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0045)http://djbook.ru/rel1.6/intro/tutorial02.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    
+    
+    <title>Создаём своё первое приложение с Django, часть 2 — Документация Django 1.6</title>
+    
+    
+     bla-bla-bla 
+    
+    
+    
+    <script type="text/javascript" async="" src="./Django_1.6_tutorial02_files/ga.js"></script><script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="./Django_1.6_tutorial02_files/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="./Django_1.6_tutorial02_files/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./Django_1.6_tutorial02_files/jquery.form.js"></script>
+    <script type="text/javascript" src="./Django_1.6_tutorial02_files/jquery.url.js"></script>
+    <script type="text/javascript" src="./Django_1.6_tutorial02_files/base.js"></script>
+    <script type="text/javascript" src="./Django_1.6_tutorial02_files/jquery.js"></script>
+    <script type="text/javascript" src="./Django_1.6_tutorial02_files/underscore.js"></script>
+    <script type="text/javascript" src="./Django_1.6_tutorial02_files/doctools.js"></script>
+    <script type="text/javascript" src="./Django_1.6_tutorial02_files/translations.js"></script>
+    
+    
+    
+    
+  
+ 
+<script type="text/javascript" src="./Django_1.6_tutorial02_files/templatebuiltins.js"></script>
+<script type="text/javascript">
+(function($) {
+    if (!django_template_builtins) {
+       // templatebuiltins.js missing, do nothing.
+       return;
+    }
+    $(document).ready(function() {
+        // Hyperlink Django template tags and filters
+        var base = "../ref/templates/builtins.html";
+        if (base == "#") {
+            // Special case for builtins.html itself
+            base = "";
+        }
+        // Tags are keywords, class '.k'
+        $("div.highlight\\-html\\+django span.k").each(function(i, elem) {
+             var tagname = $(elem).text();
+             if ($.inArray(tagname, django_template_builtins.ttags) != -1) {
+                 var fragment = tagname.replace(/_/, '-');
+                 $(elem).html("<a href='" + base + "#" + fragment + "'>" + tagname + "</a>");
+             }
+        });
+        // Filters are functions, class '.nf'
+        $("div.highlight\\-html\\+django span.nf").each(function(i, elem) {
+             var filtername = $(elem).text();
+             if ($.inArray(filtername, django_template_builtins.tfilters) != -1) {
+                 var fragment = filtername.replace(/_/, '-');
+                 $(elem).html("<a href='" + base + "#" + fragment + "'>" + filtername + "</a>");
+             }
+        });
+    });
+})(jQuery);
+</script>
+
+  
+
+  </head>
+  <body>
+
+    <div class="document">
+  <div id="custom-doc" class="yui-t6">
+    <div id="hd">
+      <h1><a href="http://djbook.ru/rel1.6/index.html">Документация Django 1.6</a></h1>
+      <div id="global-nav">
+        <a title="Djbook.ru" href="http://djbook.ru/">djbook.ru</a>  |
+        <a title="Home page" href="http://djbook.ru/rel1.6/index.html">Главная</a>  |
+        <a title="Table of contents" href="http://djbook.ru/rel1.6/contents.html">Содержание</a>  |
+        <a title="Global index" href="http://djbook.ru/rel1.6/genindex.html">Алфавитный указатель</a>  |
+        <a title="Module index" href="http://djbook.ru/rel1.6/py-modindex.html">Модули</a>  |
+        <a title="Translation State" href="http://djbook.ru/rel1.6/statistic.html">Состояние перевода</a>  |
+        <a title="Translation State" href="http://djbook.ru/rel1.6/authors.html">Контрибьюторы</a>  |
+        <a title="Как помочь с переводом?" href="https://github.com/Alerion/django_documentation/wiki/%D0%9A%D0%B0%D0%BA-%D0%BF%D0%BE%D0%BC%D0%BE%D1%87%D1%8C-%D1%81-%D0%BF%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B4%D0%BE%D0%BC%3F">
+          Как помочь с переводом?
+        </a>  |
+        <a title="Django 1.4" href="http://djbook.ru/rel1.5/">Django 1.5</a>
+      </div>
+      <div class="nav">
+    « <a href="http://djbook.ru/rel1.6/intro/tutorial01.html" title="Создаём своё первое приложение с Django, часть 1">previous</a> 
+     |
+    <a href="http://djbook.ru/rel1.6/intro/index.html" title="Приступаем" accesskey="U">up</a>
+   |
+    <a href="http://djbook.ru/rel1.6/intro/tutorial03.html" title="Создаём своё первое приложение с Django, часть 3">next</a> »</div>
+    </div>
+
+    <div id="bd">
+      <div id="yui-main">
+        <div class="yui-b">
+          <div class="yui-g" id="intro-tutorial02">
+            
+  <div class="section" id="s-writing-your-first-django-app-part-2">
+<span id="writing-your-first-django-app-part-2"></span><h1>Создаём своё первое приложение с Django, часть 2<a class="headerlink" href="http://djbook.ru/rel1.6/intro/tutorial02.html#writing-your-first-django-app-part-2" title="Ссылка на этот заголовок">¶</a></h1>
+<p class="block-with-comment"><div class="comment-indicator has-comments" style="height: 38px;"><span></span></div>Продолжаем начатое в <a class="reference internal" href="http://djbook.ru/rel1.6/intro/tutorial01.html"><em>первой части</em></a> учебника. Мы продолжим разрабатывать приложение для голосования и создадим интерфейс администратора.</p>
+<div class="admonition-philosophy admonition block-with-comment"><div class="comment-indicator has-comments" style="height: 255px;"><span>1</span></div>
+<p class="first admonition-title">Philosophy</p>
+<p>Создание интерфейса администратора для добавления, изменения и удаления содержимого сайта – в основном скучная не креативная задача. Django значительно автоматизирует и упрощает эту задачу.</p>
+<p>Django создавался для новостных сайтов, у которых есть разделение между публичными страницами и интерфейсом администратора. Менеджеры используют последний для добавления новостей и другого содержимого сайта, это содержимое отображается на сайте. Django позволяет легко создать универсальный интерфейс для редактирования содержимого сайта.</p>
+<p class="last">Интерфейс администратора не предназначен для использования пользователями. Он создан для менеджеров и администраторов сайта.</p>
+</div>
+<div class="section" id="s-start-the-development-server">
+<span id="start-the-development-server"></span><h2>Запускаем сервер для разработки<a class="headerlink" href="http://djbook.ru/rel1.6/intro/tutorial02.html#start-the-development-server" title="Ссылка на этот заголовок">¶</a></h2>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 37px;"><span></span></div>Интерфейс администратора включен по умолчанию. Давайте запустим встроенный сервер для разработки и посмотрим на него.</p>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 19px;"><span></span></div>Напомним, что сервер для разработки запускается следующим образом:</p>
+<div class="highlight-bash block-with-comment"><div class="comment-indicator" style="height: 24px;"><span></span></div><div class="highlight block-with-comment"><div class="comment-indicator" style="height: 24px;"><span></span></div><pre><span class="nv">$ </span>python manage.py runserver
+</pre></div>
+</div>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 37px;"><span></span></div>Откроем “/admin/” локального домена в браузере – например, <a class="reference external" href="http://127.0.0.1:8000/admin/">http://127.0.0.1:8000/admin/</a>. Вы должны увидеть страницу авторизации интерфейса администратора:</p>
+<img alt="Django admin login screen" src="./Django_1.6_tutorial02_files/admin01.png">
+<p class="block-with-comment"><div class="comment-indicator" style="height: 37px;"><span></span></div>Т.к. <a class="reference internal" href="http://djbook.ru/rel1.6/topics/i18n/translation.html"><em>translation</em></a> включен по умолчанию, страница авторизации может быть на вашем родном языке, зависит от настроек браузера и наличия перевода для вашего языка.</p>
+<div class="admonition-doesn-t-match-what-you-see admonition block-with-comment"><div class="comment-indicator has-comments" style="height: 182px;"><span>1</span></div>
+<p class="first admonition-title">Doesn’t match what you see?</p>
+<p>Если вместо страницы авторизации вы получили ошибку:</p>
+<div class="highlight-python"><div class="highlight"><pre>ImportError at /admin/
+cannot import name patterns
+...
+</pre></div>
+</div>
+<p class="last">значит вы используете неверную версию Django. Смотрите учебник для используемой версии или обновите Django.</p>
+</div>
+</div>
+<div class="section" id="s-enter-the-admin-site">
+<span id="enter-the-admin-site"></span><h2>Заходим в интерфейс администратора<a class="headerlink" href="http://djbook.ru/rel1.6/intro/tutorial02.html#enter-the-admin-site" title="Ссылка на этот заголовок">¶</a></h2>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 37px;"><span></span></div>Теперь авторизируемся. Вы создали суперпользователя в первой части учебника, помните?  Если вы этого не сделали или забыли пароль, <a class="reference internal" href="http://djbook.ru/rel1.6/topics/auth/default.html#topics-auth-creating-superusers"><em>создайте еще одного</em></a>.</p>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 19px;"><span></span></div>Настроим главную страницу интерфейса администратора:</p>
+<img alt="Django admin index page" src="./Django_1.6_tutorial02_files/admin02t.png">
+<p class="block-with-comment"><div class="comment-indicator" style="height: 37px;"><span></span></div>Вы должны увидеть несколько разделов: группы и пользователи. Они предоставлены приложением авторизации Django <a class="reference internal" href="http://djbook.ru/rel1.6/topics/auth/index.html#module-django.contrib.auth" title="django.contrib.auth: Django&#39;s authentication framework."><tt class="xref py py-mod docutils literal"><span class="pre">django.contrib.auth</span></tt></a>.</p>
+</div>
+<div class="section" id="s-make-the-poll-app-modifiable-in-the-admin">
+<span id="make-the-poll-app-modifiable-in-the-admin"></span><h2>Добавим приложение голосования в интерфейс администратора<a class="headerlink" href="http://djbook.ru/rel1.6/intro/tutorial02.html#make-the-poll-app-modifiable-in-the-admin" title="Ссылка на этот заголовок">¶</a></h2>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 19px;"><span></span></div>А где же наше приложение голосования? Оно не отображается в интерфейсе администратора.</p>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 37px;"><span></span></div>Нам нужно указать, что объекты модели <tt class="docutils literal"><span class="pre">Poll</span></tt> могут редактироваться в интерфейсе администратора. Для этого создадим файл <tt class="file docutils literal"><span class="pre">polls/admin.py</span></tt>, и отредактируем следующим образом:</p>
+<div class="highlight-python block-with-comment"><div class="comment-indicator" style="height: 69px;"><span></span></div><div class="highlight block-with-comment"><div class="comment-indicator" style="height: 69px;"><span></span></div><pre><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">polls.models</span> <span class="kn">import</span> <span class="n">Poll</span>
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Poll</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="s-explore-the-free-admin-functionality">
+<span id="explore-the-free-admin-functionality"></span><h2>Изучим возможности интерфейса администратора<a class="headerlink" href="http://djbook.ru/rel1.6/intro/tutorial02.html#explore-the-free-admin-functionality" title="Ссылка на этот заголовок">¶</a></h2>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 19px;"><span></span></div>После регистрации модели <tt class="docutils literal"><span class="pre">Poll</span></tt> Django отобразит ее на главной странице:</p>
+<img alt="Django admin index page, now with polls displayed" src="./Django_1.6_tutorial02_files/admin03t.png">
+<p class="block-with-comment"><div class="comment-indicator has-comments" style="height: 55px;"><span>2</span></div>Нажмите “Polls”. Вы попали на страницу  “списка объектов” для голосований. Эта страница содержит все объекты из базы данных и позволяет выбрать один из них для редактирования. Мы видим голосование “What’s up?”, которое создали в первой части учебника:</p>
+<img alt="Polls change list page" src="./Django_1.6_tutorial02_files/admin04t.png">
+<p class="block-with-comment"><div class="comment-indicator" style="height: 20px;"><span></span></div>Нажмите “What’s up?” чтобы отредактировать его:</p>
+<img alt="Editing form for poll object" src="./Django_1.6_tutorial02_files/admin05t.png">
+<p class="block-with-comment"><div class="comment-indicator" style="height: 19px;"><span></span></div>Заметим:</p>
+<ul class="simple">
+<li class="block-with-comment"><div class="comment-indicator" style="height: 19px;"><span></span></div><p class="first">Поля формы формируются на основе описания модели <tt class="docutils literal"><span class="pre">Poll</span></tt>.</p>
+</li>
+<li class="block-with-comment"><div class="comment-indicator" style="height: 37px;"><span></span></div><p class="first">Для различных типов полей модели (<a class="reference internal" href="http://djbook.ru/rel1.6/ref/models/fields.html#django.db.models.DateTimeField" title="django.db.models.DateTimeField"><tt class="xref py py-class docutils literal"><span class="pre">DateTimeField</span></tt></a>, <a class="reference internal" href="http://djbook.ru/rel1.6/ref/models/fields.html#django.db.models.CharField" title="django.db.models.CharField"><tt class="xref py py-class docutils literal"><span class="pre">CharField</span></tt></a>) используются соответствующие HTML поля. Каждое поле знает как отобразить себя в интерфейсе администратора.</p>
+</li>
+<li class="block-with-comment"><div class="comment-indicator" style="height: 38px;"><span></span></div><p class="first">К полям <a class="reference internal" href="http://djbook.ru/rel1.6/ref/models/fields.html#django.db.models.DateTimeField" title="django.db.models.DateTimeField"><tt class="xref py py-class docutils literal"><span class="pre">DateTimeField</span></tt></a> добавлен JavaScript виджет. Для даты добавлена кнопка “Сегодня” и календарь, для времени добавлена кнопка “Сейчас” и список распространенных значений.</p>
+</li>
+</ul>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 19px;"><span></span></div>В нижней части страницы мы видим несколько кнопок:</p>
+<ul class="simple">
+<li class="block-with-comment"><div class="comment-indicator" style="height: 19px;"><span></span></div><p class="first">Save – сохранить изменения и вернуться на страницу списка объектов.</p>
+</li>
+<li class="block-with-comment"><div class="comment-indicator" style="height: 37px;"><span></span></div><p class="first">Save and continue editing – сохранить изменения и снова загрузить страницу редактирования текущего объекта.</p>
+</li>
+<li class="block-with-comment"><div class="comment-indicator" style="height: 20px;"><span></span></div><p class="first">Save and add another – Сохранить изменения и перейти на страницу создания нового объекта.</p>
+</li>
+<li class="block-with-comment"><div class="comment-indicator" style="height: 19px;"><span></span></div><p class="first">Delete – Показывает страницу подтверждения удаления.</p>
+</li>
+</ul>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 37px;"><span></span></div>Если значение “Date published” не совпадает с временем создания объекта в первой части учебника, возможно вы не верно определили настройку <a class="reference internal" href="http://djbook.ru/rel1.6/ref/settings.html#std:setting-TIME_ZONE"><tt class="xref std std-setting docutils literal"><span class="pre">TIME_ZONE</span></tt></a>. Измените ее и перезагрузите страницу.</p>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 55px;"><span></span></div>Измените “Date published” нажав “Today” и “Now”. Затем нажмите “Save and continue editing.” Теперь нажмите “History” в правом верхнем углу страницы. Вы увидите все изменения объекта сделанные через интерфейс администратора, время изменений и пользователя, который их сделал:</p>
+<img alt="History page for poll object" src="./Django_1.6_tutorial02_files/admin06t.png">
+</div>
+<div class="section" id="s-customize-the-admin-form">
+<span id="customize-the-admin-form"></span><h2>Настройка формы<a class="headerlink" href="http://djbook.ru/rel1.6/intro/tutorial02.html#customize-the-admin-form" title="Ссылка на этот заголовок">¶</a></h2>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 73px;"><span></span></div>Потратим несколько минут чтобы полюбоваться кодом, который нам не пришлось писать самостоятельно. После регистрации модели <tt class="docutils literal"><span class="pre">Poll</span></tt> используя <tt class="docutils literal"><span class="pre">admin.site.register(Poll)</span></tt>, Django создал форму для модели. Скорее всего вам захочется изменить ее. Вы можете это сделать используя параметры при регистрации модели.</p>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 19px;"><span></span></div>Вот как это работает. Давайте поменяем порядок полей в форме. Замените <tt class="docutils literal"><span class="pre">admin.site.register(Poll)</span></tt> на:</p>
+<div class="highlight-python block-with-comment"><div class="comment-indicator" style="height: 114px;"><span></span></div><div class="highlight block-with-comment"><div class="comment-indicator" style="height: 114px;"><span></span></div><pre><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">polls.models</span> <span class="kn">import</span> <span class="n">Poll</span>
+
+<span class="k">class</span> <span class="nc">PollAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s">'pub_date'</span><span class="p">,</span> <span class="s">'question'</span><span class="p">]</span>
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Poll</span><span class="p">,</span> <span class="n">PollAdmin</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 19px;"><span></span></div>Создаем объект <tt class="docutils literal"><span class="pre">ModelAdmin</span></tt> и предаем его в <tt class="docutils literal"><span class="pre">admin.site.register()</span></tt>.</p>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 20px;"><span></span></div>Теперь поле “Publication date” отображается перед полем “Question”:</p>
+<img alt="Fields have been reordered" src="./Django_1.6_tutorial02_files/admin07.png">
+<p class="block-with-comment"><div class="comment-indicator" style="height: 37px;"><span></span></div>Для нескольких полей это выглядит не очень внушительно, но при большом количестве полей порядок может значительно повысить удобство.</p>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 19px;"><span></span></div>Для форм с большим количеством полей можно разбить форму на группу полей:</p>
+<div class="highlight-python block-with-comment"><div class="comment-indicator" style="height: 159px;"><span></span></div><div class="highlight block-with-comment"><div class="comment-indicator" style="height: 159px;"><span></span></div><pre><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">polls.models</span> <span class="kn">import</span> <span class="n">Poll</span>
+
+<span class="k">class</span> <span class="nc">PollAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">fieldsets</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="bp">None</span><span class="p">,</span>               <span class="p">{</span><span class="s">'fields'</span><span class="p">:</span> <span class="p">[</span><span class="s">'question'</span><span class="p">]}),</span>
+        <span class="p">(</span><span class="s">'Date information'</span><span class="p">,</span> <span class="p">{</span><span class="s">'fields'</span><span class="p">:</span> <span class="p">[</span><span class="s">'pub_date'</span><span class="p">]}),</span>
+    <span class="p">]</span>
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Poll</span><span class="p">,</span> <span class="n">PollAdmin</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 19px;"><span></span></div>Первый элемент кортежа в <tt class="docutils literal"><span class="pre">fieldsets</span></tt> – название группы полей. Вот как будет выглядеть наша форма:</p>
+<img alt="Form has fieldsets now" src="./Django_1.6_tutorial02_files/admin08t.png">
+<p class="block-with-comment"><div class="comment-indicator" style="height: 55px;"><span></span></div>Вы можете добавить HTML классы для каждой группы полей. Django предоставляет класс <tt class="docutils literal"><span class="pre">"collapse"</span></tt>, который отображает группу полей изначально скрытой. Это полезно, если форма содержит поля, которые редко редактируются:</p>
+<div class="highlight-python block-with-comment"><div class="comment-indicator" style="height: 129px;"><span></span></div><div class="highlight block-with-comment"><div class="comment-indicator has-comments" style="height: 129px;"><span>1</span></div><pre><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">polls.models</span> <span class="kn">import</span> <span class="n">Poll</span>
+
+<span class="k">class</span> <span class="nc">PollAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">fieldsets</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="bp">None</span><span class="p">,</span>               <span class="p">{</span><span class="s">'fields'</span><span class="p">:</span> <span class="p">[</span><span class="s">'question'</span><span class="p">]}),</span>
+        <span class="p">(</span><span class="s">'Date information'</span><span class="p">,</span> <span class="p">{</span><span class="s">'fields'</span><span class="p">:</span> <span class="p">[</span><span class="s">'pub_date'</span><span class="p">],</span> <span class="s">'classes'</span><span class="p">:</span> <span class="p">[</span><span class="s">'collapse'</span><span class="p">]}),</span>
+    <span class="p">]</span>
+</pre></div>
+</div>
+<img alt="Fieldset is initially collapsed" src="./Django_1.6_tutorial02_files/admin09.png">
+</div>
+<div class="section" id="s-adding-related-objects">
+<span id="adding-related-objects"></span><h2>Добавления связанных объектов<a class="headerlink" href="http://djbook.ru/rel1.6/intro/tutorial02.html#adding-related-objects" title="Ссылка на этот заголовок">¶</a></h2>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 37px;"><span></span></div>Отлично, теперь модель <tt class="docutils literal"><span class="pre">Poll</span></tt> имеет свою собственную страницу в интерфейсе администратора. Но <tt class="docutils literal"><span class="pre">Poll</span></tt> содержит несколько <tt class="docutils literal"><span class="pre">Choices</span></tt>, которые интерфейс администратора не отображает.</p>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 19px;"><span></span></div>Пока что.</p>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 37px;"><span></span></div>Есть два способа это сделать. Первый - зарегистрировать модель <tt class="docutils literal"><span class="pre">Choice</span></tt> в интерфейсе администратора, так же как и <tt class="docutils literal"><span class="pre">Poll</span></tt>. Это просто:</p>
+<div class="highlight-python block-with-comment"><div class="comment-indicator" style="height: 69px;"><span></span></div><div class="highlight block-with-comment"><div class="comment-indicator" style="height: 69px;"><span></span></div><pre><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">polls.models</span> <span class="kn">import</span> <span class="n">Choice</span>
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Choice</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 38px;"><span></span></div>Теперь “Choices” отображается в интерфейсе администратора. Форма добавления варианта ответа выглядит следующим образом:</p>
+<img alt="Choice admin page" src="./Django_1.6_tutorial02_files/admin10.png">
+<p class="block-with-comment"><div class="comment-indicator" style="height: 55px;"><span></span></div>В этой форме поле “Poll” представлено <tt class="docutils literal"><span class="pre">&lt;select&gt;</span></tt> с объектами <tt class="docutils literal"><span class="pre">Poll</span></tt> из базы данных. Django знает, что поле <a class="reference internal" href="http://djbook.ru/rel1.6/ref/models/fields.html#django.db.models.ForeignKey" title="django.db.models.ForeignKey"><tt class="xref py py-class docutils literal"><span class="pre">ForeignKey</span></tt></a> должно быть представлено как <tt class="docutils literal"><span class="pre">&lt;select&gt;</span></tt>. В нашем случае можно выбрать только одно голосование.</p>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 73px;"><span></span></div>Обратите внимание на ссылку “Add Another” возле поля “Poll.” Он будет добавлен для каждого поля <tt class="docutils literal"><span class="pre">ForeignKey</span></tt>. При нажатии на “Add Another,” будет показано всплывающее окно с формой добавления голосования. Если вы добавите голосование и нажмете “Save,” Django сохранит объект в базу данных и выберет его в поле.</p>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 37px;"><span></span></div>Но, на самом деле, это совсем не удобный способ добавлять варианты ответов для голосования. Было бы удобнее добавлять варианты ответов пачками при добавлении голосования. Давайте сделаем это.</p>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 37px;"><span></span></div>Уберите вызов <tt class="docutils literal"><span class="pre">register()</span></tt> для модели <tt class="docutils literal"><span class="pre">Choice</span></tt>. И отредактируйте код для регистрации <tt class="docutils literal"><span class="pre">Poll</span></tt> в интерфейсе администратора:</p>
+<div class="highlight-python block-with-comment"><div class="comment-indicator" style="height: 235px;"><span></span></div><div class="highlight block-with-comment"><div class="comment-indicator" style="height: 234px;"><span></span></div><pre><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">polls.models</span> <span class="kn">import</span> <span class="n">Choice</span><span class="p">,</span> <span class="n">Poll</span>
+
+<span class="k">class</span> <span class="nc">ChoiceInline</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">StackedInline</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Choice</span>
+    <span class="n">extra</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="k">class</span> <span class="nc">PollAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">fieldsets</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="bp">None</span><span class="p">,</span>               <span class="p">{</span><span class="s">'fields'</span><span class="p">:</span> <span class="p">[</span><span class="s">'question'</span><span class="p">]}),</span>
+        <span class="p">(</span><span class="s">'Date information'</span><span class="p">,</span> <span class="p">{</span><span class="s">'fields'</span><span class="p">:</span> <span class="p">[</span><span class="s">'pub_date'</span><span class="p">],</span> <span class="s">'classes'</span><span class="p">:</span> <span class="p">[</span><span class="s">'collapse'</span><span class="p">]}),</span>
+    <span class="p">]</span>
+    <span class="n">inlines</span> <span class="o">=</span> <span class="p">[</span><span class="n">ChoiceInline</span><span class="p">]</span>
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Poll</span><span class="p">,</span> <span class="n">PollAdmin</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 37px;"><span></span></div>Это говорит Django: “Варианты ответов редактируются на странице голосования. По умолчанию, покажите 3 формы для добавления вариантов ответа.”</p>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 19px;"><span></span></div>Загрузите страницу  “Add poll” и посмотрите как она выглядит:</p>
+<img alt="Add poll page now has choices on it" src="./Django_1.6_tutorial02_files/admin11t.png">
+<p class="block-with-comment"><div class="comment-indicator" style="height: 55px;"><span></span></div>Это работает следующим образом: Есть три формы для добавления вариантов ответа – как определяет параметр <tt class="docutils literal"><span class="pre">extra</span></tt> – и при каждой загрузке этой страницы будет три формы для добавления новых вариантов ответа.</p>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 56px;"><span></span></div>В конце формы вы увидите  ссылку “Add another Choice”.  Кликните и добавится новая форма. Чтобы удалить форму нажмите на X. Заметим что вы не можете удалить формы для существующих записей. Следующий рисунок показывает добавленные формы:</p>
+<img alt="Additional slot added dynamically" src="./Django_1.6_tutorial02_files/admin15t.png">
+<p class="block-with-comment"><div class="comment-indicator" style="height: 37px;"><span></span></div>Однако есть одна проблема. Эти формы занимают много места. Для таких случаев, Django предлагает другой вариант отображения, переопределите <tt class="docutils literal"><span class="pre">ChoiceInline</span></tt> следующим образом:</p>
+<div class="highlight-python block-with-comment"><div class="comment-indicator" style="height: 39px;"><span></span></div><div class="highlight block-with-comment"><div class="comment-indicator" style="height: 39px;"><span></span></div><pre>class ChoiceInline(admin.TabularInline):
+    #...
+</pre></div>
+</div>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 37px;"><span></span></div>С <tt class="docutils literal"><span class="pre">TabularInline</span></tt> (вместо <tt class="docutils literal"><span class="pre">StackedInline</span></tt>), формы для связанных объектов отображаются в более компактном табличном виде:</p>
+<img alt="Add poll page now has more compact choices" src="./Django_1.6_tutorial02_files/admin12t.png">
+<p class="block-with-comment"><div class="comment-indicator" style="height: 37px;"><span></span></div>Обратите внимание на дополнительную колонку  “Delete?”, которая позволяет удалить только что добавленные и существующие записи.</p>
+</div>
+<div class="section" id="s-customize-the-admin-change-list">
+<span id="customize-the-admin-change-list"></span><h2>Настройка страницы списка объектов<a class="headerlink" href="http://djbook.ru/rel1.6/intro/tutorial02.html#customize-the-admin-change-list" title="Ссылка на этот заголовок">¶</a></h2>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 37px;"><span></span></div>Теперь, когда страница добавления/редактирования голосования выглядит хорошо, давай улучшим страницу отображения списка голосований.</p>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 19px;"><span></span></div>Вот как она выглядит сейчас:</p>
+<img alt="Polls change list page" src="./Django_1.6_tutorial02_files/admin04t.png">
+<p class="block-with-comment"><div class="comment-indicator" style="height: 55px;"><span></span></div>По умолчанию Django отображает результат выполнения <tt class="docutils literal"><span class="pre">str()</span></tt> для каждого объекта. Но чаще всего хочется показывать список полей. Для этого используйте параметр <tt class="docutils literal"><span class="pre">list_display</span></tt>, который является кортежем состоящим из названий полей модели:</p>
+<div class="highlight-python block-with-comment"><div class="comment-indicator" style="height: 55px;"><span></span></div><div class="highlight block-with-comment"><div class="comment-indicator" style="height: 54px;"><span></span></div><pre><span class="k">class</span> <span class="nc">PollAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="c"># ...</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s">'question'</span><span class="p">,</span> <span class="s">'pub_date'</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 19px;"><span></span></div>Для примера давайте еще и добавим метод <tt class="docutils literal"><span class="pre">was_published_recently</span></tt> из Части 1 учебника:</p>
+<div class="highlight-python block-with-comment"><div class="comment-indicator" style="height: 54px;"><span></span></div><div class="highlight block-with-comment"><div class="comment-indicator" style="height: 54px;"><span></span></div><pre><span class="k">class</span> <span class="nc">PollAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="c"># ...</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s">'question'</span><span class="p">,</span> <span class="s">'pub_date'</span><span class="p">,</span> <span class="s">'was_published_recently'</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 19px;"><span></span></div>Теперь страница списка объектов <tt class="docutils literal"><span class="pre">Poll</span></tt> выглядит следующим образом:</p>
+<img alt="Polls change list page, updated" src="./Django_1.6_tutorial02_files/admin13t.png">
+<p class="block-with-comment"><div class="comment-indicator" style="height: 73px;"><span></span></div>Вы можете нажать на заголовок колонки чтобы отсортировать записи по полю – но не для <tt class="docutils literal"><span class="pre">was_published_recently</span></tt>, так как сортировка по методу не поддерживается. Название колонки для <tt class="docutils literal"><span class="pre">was_published_recently</span></tt> по умолчанию равно названию метода (нижние подчеркивание заменяется на пробелы), а значение равно строковому представлению результата выполнения метода.</p>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 20px;"><span></span></div>Вы можете исправить это добавив несколько атрибутов (в <tt class="file docutils literal"><span class="pre">polls/models.py</span></tt>) этому методу:</p>
+<div class="highlight-python block-with-comment"><div class="comment-indicator" style="height: 114px;"><span></span></div><div class="highlight block-with-comment"><div class="comment-indicator" style="height: 114px;"><span></span></div><pre><span class="k">class</span> <span class="nc">Poll</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="c"># ...</span>
+    <span class="k">def</span> <span class="nf">was_published_recently</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pub_date</span> <span class="o">&gt;=</span> <span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">was_published_recently</span><span class="o">.</span><span class="n">admin_order_field</span> <span class="o">=</span> <span class="s">'pub_date'</span>
+    <span class="n">was_published_recently</span><span class="o">.</span><span class="n">boolean</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">was_published_recently</span><span class="o">.</span><span class="n">short_description</span> <span class="o">=</span> <span class="s">'Published recently?'</span>
+</pre></div>
+</div>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 37px;"><span></span></div>Отредактируем файл <tt class="file docutils literal"><span class="pre">polls/admin.py</span></tt> снова и добавим на страницу Фильтры. Добавьте следующую строку в <tt class="docutils literal"><span class="pre">PollAdmin</span></tt>:</p>
+<div class="highlight-python block-with-comment"><div class="comment-indicator" style="height: 24px;"><span></span></div><div class="highlight block-with-comment"><div class="comment-indicator" style="height: 24px;"><span></span></div><pre><span class="n">list_filter</span> <span class="o">=</span> <span class="p">[</span><span class="s">'pub_date'</span><span class="p">]</span>
+</pre></div>
+</div>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 19px;"><span></span></div>Это добавляет “Фильтр” по полю <tt class="docutils literal"><span class="pre">pub_date</span></tt> в боковой панели:</p>
+<img alt="Polls change list page, updated" src="./Django_1.6_tutorial02_files/admin14t.png">
+<p class="block-with-comment"><div class="comment-indicator" style="height: 37px;"><span></span></div>Тип фильтра зависит от типа поля. Так как <tt class="docutils literal"><span class="pre">pub_date</span></tt> является <a class="reference internal" href="http://djbook.ru/rel1.6/ref/models/fields.html#django.db.models.DateTimeField" title="django.db.models.DateTimeField"><tt class="xref py py-class docutils literal"><span class="pre">DateTimeField</span></tt></a>, Django отображает соответствующие варианты для фильтрации: “Any date,” “Today,” “Past 7 days,” “This month,” “This year.”</p>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 19px;"><span></span></div>Теперь добавим поиск:</p>
+<div class="highlight-python block-with-comment"><div class="comment-indicator" style="height: 24px;"><span></span></div><div class="highlight block-with-comment"><div class="comment-indicator" style="height: 24px;"><span></span></div><pre><span class="n">search_fields</span> <span class="o">=</span> <span class="p">[</span><span class="s">'question'</span><span class="p">]</span>
+</pre></div>
+</div>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 55px;"><span></span></div>Это добавляет поле для поиска в верхней части страницы. При вводе запроса, Django будет искать по полю <tt class="docutils literal"><span class="pre">question</span></tt>. Вы можете использовать любое количество полей – учтите что используется запрос <tt class="docutils literal"><span class="pre">LIKE</span></tt>, так что постарайтесь не перегрузить вашу базу данных.</p>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 38px;"><span></span></div>Страница списка объектов также содержит постраничное отображение. По умолчанию отображается 100 объектов на страницу.</p>
+</div>
+<div class="section" id="s-customize-the-admin-look-and-feel">
+<span id="customize-the-admin-look-and-feel"></span><h2>Настраиваем внешний вид<a class="headerlink" href="http://djbook.ru/rel1.6/intro/tutorial02.html#customize-the-admin-look-and-feel" title="Ссылка на этот заголовок">¶</a></h2>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 19px;"><span></span></div>“Django administration” в “шапке” страницы выглядит нелепо. Это просто замещающий текст.</p>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 37px;"><span></span></div>Его очень легко заменить, используя систему шаблонов Django. Интерфейс администратора работает благодаря Django и использует систему шаблонов Django.</p>
+<div class="section" id="s-customizing-your-project-s-templates">
+<span id="s-ref-customizing-your-projects-templates"></span><span id="customizing-your-project-s-templates"></span><span id="ref-customizing-your-projects-templates"></span><h3>Переопределение шаблонов <em>проекта</em><a class="headerlink" href="http://djbook.ru/rel1.6/intro/tutorial02.html#customizing-your-project-s-templates" title="Ссылка на этот заголовок">¶</a></h3>
+<p class="block-with-comment"><div class="comment-indicator has-comments" style="height: 55px;"><span>1</span></div>Создайте каталог <tt class="docutils literal"><span class="pre">templates</span></tt> в каталоге проекта. Шаблоны могут располагаться где угодно, главное чтобы Django имел доступ к ним. (Django запускается под юзером, под которым запущен сервер.) Но мы советуем располагаеть шаблоны внутри проекта.</p>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 20px;"><span></span></div>Откройте файл настроек (напомним это <tt class="file docutils literal"><span class="pre">mysite/settings.py</span></tt>) и найдите настройку <a class="reference internal" href="http://djbook.ru/rel1.6/ref/settings.html#std:setting-TEMPLATE_DIRS"><tt class="xref std std-setting docutils literal"><span class="pre">TEMPLATE_DIRS</span></tt></a>:</p>
+<div class="highlight-python block-with-comment"><div class="comment-indicator" style="height: 24px;"><span></span></div><div class="highlight block-with-comment"><div class="comment-indicator" style="height: 24px;"><span></span></div><pre><span class="n">TEMPLATE_DIRS</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s">'templates'</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p class="block-with-comment"><div class="comment-indicator has-comments" style="height: 37px;"><span>1</span></div><a class="reference internal" href="http://djbook.ru/rel1.6/ref/settings.html#std:setting-TEMPLATE_DIRS"><tt class="xref std std-setting docutils literal"><span class="pre">TEMPLATE_DIRS</span></tt></a> являет собой итерируемый объект путей к каталогам, который указывает Django будет искать шаблоны.</p>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 37px;"><span></span></div>Теперь создайте каталог <tt class="docutils literal"><span class="pre">admin</span></tt> в каталоге <tt class="docutils literal"><span class="pre">templates</span></tt>, и скопируйте шаблон <tt class="docutils literal"><span class="pre">admin/base_site.html</span></tt> из встроенных шаблонов в исходниках Django (<tt class="docutils literal"><span class="pre">django/contrib/admin/templates</span></tt>) в этот каталог.</p>
+<div class="admonition-where-are-the-django-source-files admonition block-with-comment"><div class="comment-indicator" style="height: 175px;"><span></span></div>
+<p class="first admonition-title">Where are the Django source files?</p>
+<p>Если вы не знаете где лежат исходники Django, выполните следующую команду:</p>
+<div class="last highlight-bash"><div class="highlight"><pre>python -c <span class="s2">"</span>
+<span class="s2">import sys</span>
+<span class="s2">sys.path = sys.path[1:]</span>
+<span class="s2">import django</span>
+<span class="s2">print(django.__path__)"</span>
+</pre></div>
+</div>
+</div>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 19px;"><span></span></div>Отредактируйте файл и замените текст по умолчанию на название вашего сайта.</p>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 73px;"><span></span></div>Этот шаблон содержит текст подобный <tt class="docutils literal"><span class="pre">{%</span> <span class="pre">block</span> <span class="pre">branding</span> <span class="pre">%}</span></tt> и <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">title</span> <span class="pre">}}</span></tt>. Теги <tt class="docutils literal"><span class="pre">{%</span></tt> и <tt class="docutils literal"><span class="pre">{{</span></tt> – это части синтаксиса системы шаблонов Django. При выполнении шаблона <tt class="docutils literal"><span class="pre">admin/base_site.html</span></tt> Django создаст HTML страницу. Не волнуйтесь если ничего не понимаете в этом – в шаблонах Django мы разберемся в Части 3.</p>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 38px;"><span></span></div>Любой шаблон интерфейса администратора можно переопределить. Чтобы переопределить шаблон, сделайте тоже что и с <tt class="docutils literal"><span class="pre">base_site.html</span></tt> – скопируйте его в каталог с шаблонами проекта и внесите изменения.</p>
+</div>
+<div class="section" id="s-customizing-your-application-s-templates">
+<span id="customizing-your-application-s-templates"></span><h3>Кастомизация шаблонов <em>приложения</em><a class="headerlink" href="http://djbook.ru/rel1.6/intro/tutorial02.html#customizing-your-application-s-templates" title="Ссылка на этот заголовок">¶</a></h3>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 73px;"><span></span></div>Внимательные читатели спросят: если <a class="reference internal" href="http://djbook.ru/rel1.6/ref/settings.html#std:setting-TEMPLATE_DIRS"><tt class="xref std std-setting docutils literal"><span class="pre">TEMPLATE_DIRS</span></tt></a> пустая по умолчанию, как Django находит шаблоны интерфейса администратора по умолчанию? Django пытается найти шаблон в подкаталоге <tt class="docutils literal"><span class="pre">templates/</span></tt> каждого приложении, если шаблон не найден другим способом, а как мы знаем, <tt class="docutils literal"><span class="pre">django.contrib.admin</span></tt> это приложение.</p>
+<p class="block-with-comment"><div class="comment-indicator has-comments" style="height: 74px;"><span>1</span></div>Наше приложение простое и не требует переопределения шаблонов. Но если оно станет большим и сложным, и нам понадобится изменить его шаблоны, логичнее изменить шаблоны для <em>приложения</em>, а не для <em>проекта</em>. В таком случае вы сможете добавить приложения для голосования в любой проект и переопределенные шаблоны будут работать.</p>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 19px;"><span></span></div>Смотрите <a class="reference internal" href="http://djbook.ru/rel1.6/ref/templates/api.html#template-loaders"><em>раздел о загрузке шаблонов</em></a>, чтобы узнать как Django ищет шаблоны.</p>
+</div>
+</div>
+<div class="section" id="s-customize-the-admin-index-page">
+<span id="customize-the-admin-index-page"></span><h2>Настроим главную страницу<a class="headerlink" href="http://djbook.ru/rel1.6/intro/tutorial02.html#customize-the-admin-index-page" title="Ссылка на этот заголовок">¶</a></h2>
+<p class="block-with-comment"><div class="comment-indicator has-comments" style="height: 19px;"><span>1</span></div>Возможно вам понадобится настроить главную страницу интерфейса администратора.</p>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 55px;"><span></span></div>По умолчанию она показывает все приложения в алфавитном порядке из настройки <a class="reference internal" href="http://djbook.ru/rel1.6/ref/settings.html#std:setting-INSTALLED_APPS"><tt class="xref std std-setting docutils literal"><span class="pre">INSTALLED_APPS</span></tt></a>, которые зарегистрированы в интерфейсе администратора. Главная страница очень важна и должна быть удобной.</p>
+<p class="block-with-comment"><div class="comment-indicator has-comments" style="height: 91px;"><span>1</span></div>Для главной страницы используется шаблон <tt class="docutils literal"><span class="pre">admin/index.html</span></tt>. (Сделайте тоже что и с шаблоном <tt class="docutils literal"><span class="pre">admin/base_site.html</span></tt> из раздела выше – скопируйте его из приложения Django в каталог шаблонов проекта.) Откройте файл и вы увидите использование переменной <tt class="docutils literal"><span class="pre">app_list</span></tt>. Эта переменная содержит все отображаемые приложения. Вместо нее вы можете явно указать ссылки на нужные страницы. Опять же, не волнуйтесь что вы ничего не понимаете, шаблоны будут обсуждаться в Части 3.</p>
+<p class="block-with-comment"><div class="comment-indicator" style="height: 19px;"><span></span></div>Если вы освоили интерфейс администратора, переходите к <a class="reference internal" href="http://djbook.ru/rel1.6/intro/tutorial03.html"><em>третьей части этого учебника</em></a>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      
+        
+          <div class="yui-b" id="sidebar">
+            
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="http://djbook.ru/rel1.6/contents.html">Оглавление</a></h3>
+  <ul>
+<li><a class="reference internal" href="http://djbook.ru/rel1.6/intro/tutorial02.html#">Создаём своё первое приложение с Django, часть 2</a><ul>
+<li><a class="reference internal" href="http://djbook.ru/rel1.6/intro/tutorial02.html#start-the-development-server">Запускаем сервер для разработки</a></li>
+<li><a class="reference internal" href="http://djbook.ru/rel1.6/intro/tutorial02.html#enter-the-admin-site">Заходим в интерфейс администратора</a></li>
+<li><a class="reference internal" href="http://djbook.ru/rel1.6/intro/tutorial02.html#make-the-poll-app-modifiable-in-the-admin">Добавим приложение голосования в интерфейс администратора</a></li>
+<li><a class="reference internal" href="http://djbook.ru/rel1.6/intro/tutorial02.html#explore-the-free-admin-functionality">Изучим возможности интерфейса администратора</a></li>
+<li><a class="reference internal" href="http://djbook.ru/rel1.6/intro/tutorial02.html#customize-the-admin-form">Настройка формы</a></li>
+<li><a class="reference internal" href="http://djbook.ru/rel1.6/intro/tutorial02.html#adding-related-objects">Добавления связанных объектов</a></li>
+<li><a class="reference internal" href="http://djbook.ru/rel1.6/intro/tutorial02.html#customize-the-admin-change-list">Настройка страницы списка объектов</a></li>
+<li><a class="reference internal" href="http://djbook.ru/rel1.6/intro/tutorial02.html#customize-the-admin-look-and-feel">Настраиваем внешний вид</a><ul>
+<li><a class="reference internal" href="http://djbook.ru/rel1.6/intro/tutorial02.html#customizing-your-project-s-templates">Переопределение шаблонов <em>проекта</em></a></li>
+<li><a class="reference internal" href="http://djbook.ru/rel1.6/intro/tutorial02.html#customizing-your-application-s-templates">Кастомизация шаблонов <em>приложения</em></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="http://djbook.ru/rel1.6/intro/tutorial02.html#customize-the-admin-index-page">Настроим главную страницу</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>Browse</h3>
+  <ul>
+    
+      <li>Prev: <a href="http://djbook.ru/rel1.6/intro/tutorial01.html">Создаём своё первое приложение с Django, часть 1</a></li>
+    
+    
+      <li>Next: <a href="http://djbook.ru/rel1.6/intro/tutorial03.html">Создаём своё первое приложение с Django, часть 3</a></li>
+    
+  </ul>
+  <h3>You are here:</h3>
+  <ul>
+      <li>
+        <a href="http://djbook.ru/rel1.6/index.html">Документация Django 1.6</a>
+        
+          <ul><li><a href="http://djbook.ru/rel1.6/intro/index.html">Приступаем</a>
+        
+        <ul><li>Создаём своё первое приложение с Django, часть 2</li></ul>
+        </li></ul>
+      </li>
+  </ul>  
+
+  <h3>На этой странице</h3>
+  <ul class="this-page-menu">
+    <li><a href="http://djbook.ru/rel1.6/_sources/intro/tutorial02.txt" rel="nofollow">Исходный текст</a></li>
+  </ul>
+<div id="searchbox" style="">
+  <h3>Быстрый поиск</h3>
+    <form class="search" action="http://djbook.ru/rel1.6/search.html" method="get">
+      <input type="text" name="q">
+      <input type="submit" value="Искать">
+      <input type="hidden" name="check_keywords" value="yes">
+      <input type="hidden" name="area" value="default">
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Введите слова для поиска или имя модуля, класса или функции.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+              <h3>Последнее обновление:</h3>
+              <p class="topless">Apr 09, 2014</p>
+          </div>
+        
+      
+    </div>
+
+    <div id="ft">
+      <div class="nav">
+    « <a href="http://djbook.ru/rel1.6/intro/tutorial01.html" title="Создаём своё первое приложение с Django, часть 1">previous</a> 
+     |
+    <a href="http://djbook.ru/rel1.6/intro/index.html" title="Приступаем" accesskey="U">up</a>
+   |
+    <a href="http://djbook.ru/rel1.6/intro/tutorial03.html" title="Создаём своё первое приложение с Django, часть 3">next</a> »</div>
+    </div>
+  </div>
+
+      <div class="clearer"></div>
+    </div>
+<footer style="width: width: 76.54em; min-width: 995px; max-width: 100em; display: inline-block;">
+  Translated by &nbsp; Ruslan Popov @ gmail.com &nbsp; Dmitriy Kostochko @ gmail.com
+  and <a href="http://djbook.ru/rel1.6/authors.html">other</a>.
+  <!--LiveInternet counter--><script type="text/javascript"><!--
+  document.write("<a href='http://www.liveinternet.ru/click' "+
+  "target=_blank><img src='//counter.yadro.ru/hit?t52.6;r"+
+  escape(document.referrer)+((typeof(screen)=="undefined")?"":
+  ";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+  screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+  ";"+Math.random()+
+  "' alt='' title='LiveInternet: показано число просмотров и"+
+  " посетителей за 24 часа' "+
+  "border='0' width='88' height='31'><\/a>")
+  //--></script><a href="http://www.liveinternet.ru/click" target="_blank"><img src="./Django_1.6_tutorial02_files/hit" alt="" title="LiveInternet: показано число просмотров и посетителей за 24 часа" border="0" width="88" height="31"></a><!--/LiveInternet-->
+  <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-3919032-6']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+  </script>
+  <div style="display: inline-block; text-align: left;">
+    master <br>
+    7d39dcac6574b05cbafed3f6aa95c240dc40d36e<br>
+  </div>
+</footer>
+
+  
+<div class="modal hide" id="commentsModal"><div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button><h3>Комментарии</h3></div><div class="modal-body"><ul class="nav nav-tabs"><li class=""><a href="http://djbook.ru/rel1.6/intro/tutorial02.html#commentsModalComments" data-toggle="tab">Комментарии</a></li><li class="active"><a href="http://djbook.ru/rel1.6/intro/tutorial02.html#commentsModalAdd" data-toggle="tab">Добавить</a></li></ul><div class="tab-content"><div class="tab-pane active" id="commentsModalAdd"><form class="form-inline" method="post" action="http://djbook.ru/doc_comments/add/"><input type="hidden" name="page"><input type="hidden" name="page_title"><input type="hidden" name="xpath"><fieldset><div class="control-group error"><div class="controls"><textarea name="content"></textarea></div><div class="help-inline">Вы не авторизированы и не сможете добавить комментарий. <a href="http://djbook.ru/auth/login/?next=/rel1.6/intro/tutorial02.html">Войти</a></div></div></fieldset></form></div><div class="tab-pane" id="commentsModalComments"></div></div></div><div class="modal-footer"><p class="info">Вопросы задавать на <a href="http://djbook.ru/forum/" target="blank">форуме</a>.<br> Здесь обсуждаем перевод.</p><a href="http://djbook.ru/rel1.6/intro/tutorial02.html#" class="btn refresh">Обновить</a><a href="http://djbook.ru/rel1.6/intro/tutorial02.html#" class="btn" data-dismiss="modal">Отмена</a><a href="http://djbook.ru/rel1.6/intro/tutorial02.html#" class="btn submit btn-primary">Добавить</a></div></div></body></html>
