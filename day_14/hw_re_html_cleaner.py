@@ -3,11 +3,11 @@
 import re
 
 f_name = "Django_1.6_tutorial02.html"
-tags = ["meta", "link", "style"]
+tags = ("meta", "link", "style")
 dict_tags = {}
 line_number = 0
 in_data = ""
-p = r'<(?:(?:meta|link).*?|(style)>(?:\s|\S)*</\1)>'
+p = r'<(?:(?:{0}|{1}).*?|({2})>(?:\s|\S)*</\1)>'.format(*tags)
 pattern = re.compile(p)
 f = open(f_name)
 f_out = open("clear.html", "w")
